@@ -1,0 +1,256 @@
+:root {
+    --primaryOrange: hsl(35, 77%, 62%);
+    --primaryRed: hsl(5, 85%, 63%);
+    --offWhite: hsl(36, 100%, 99%);
+    --lightGray: hsl(233, 8%, 79%);
+    --textBlue: hsl(236, 13%, 42%);
+    --backgroundBlue: hsl(240, 100%, 5%) 
+}
+
+@font-face {
+    font-family: custom;
+    src: url('assets/fonts/static/Inter-Regular.ttf')
+}
+
+@font-face {
+    font-family: customBold;
+    src: url('assets/fonts/static/Inter-Bold.ttf')
+}
+
+@font-face {
+    font-family: customExtraBold;
+    src: url('assets/fonts/static/Inter-ExtraBold.ttf')
+}
+
+body {
+    font-family: custom;
+}
+
+#navbar {
+    width: 80vw;
+    margin: 5vmax auto;
+}
+
+.spacer {
+    flex-basis: 100%;
+    flex-shrink: 100;
+}
+
+.flexWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexColumn {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+.lightGray {
+    color: var(--lightGray)
+}
+
+.orangeOnHover:hover {
+    color: var(--primaryOrange)
+}
+
+.redOnHover:hover {
+    color: var(--primaryRed)
+}
+
+.backgroundBlue {
+    color: var(--backgroundBlue)
+}
+
+.textBlue {
+    color: var(--textBlue);
+}
+
+.navButton {
+    margin: 0 0 0 2vw;
+    font-size: 1.2em;
+    transition: color .5s;
+}
+
+.navButton:hover {
+    color: var(--backgroundBlue);
+    font-weight: 700;
+}
+
+#grid {
+    width: 80vw;
+    min-height: 50vh; 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr;
+    grid-template-areas: 
+        'a a b'
+        'a a b'
+        'c d b';
+    grid-gap: 3vmin;
+    margin: 0 auto;
+
+}
+
+.picture {
+    object-fit: cover;
+    max-width: 100%;
+    height: 100%;
+}
+
+.pictureContainer {
+    grid-area: a;
+}
+
+.darkBox {
+    grid-area: b;
+    background-color: var(--backgroundBlue);
+    color: var(--offWhite);
+    padding: 3vmax 3vmax;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+
+.darkBox h1 {
+    color: var(--primaryOrange);
+    margin: 5% 0;
+    font-size: clamp(2em, 3vmax, 3em);
+    font-weight: 900;
+    font-family: customBold;
+    align-self: flex-start;
+}
+
+.darkBox h2 {
+    font-size: clamp(1.25em, 2vmax, 1.75em);
+    font-weight: 900;
+    cursor: pointer;
+    transition: color .5s;
+}
+
+.darkBox hr {
+    width: 80%;
+    height: 1px;
+    border: none;
+    color: var(--lightGray);
+    background-color: var(--lightGray);
+    margin: 10px 0;
+    align-self: center;
+}
+
+.darkBox p {
+    color: var(--lightGray);
+    font-size: clamp(.9em, 0.9vmax, 1.5em);
+}
+
+.megaTitle {
+    font-size: 4vmax;
+    font-family: customExtraBold;
+    font-weight: 900;
+    color: var(--backgroundBlue);
+    justify-self: center;
+    align-self: center;
+    transition: color .5s;
+}
+
+.megaTitle:hover {
+    color: var(--primaryRed)
+}
+
+.paragraph {
+    color: var(--textBlue);
+    align-self: flex-start;
+    margin: 0;
+    font-size: clamp(1em, 2vmax, 1.5em)
+}
+
+.redButton {
+    width: 50%;
+    height: 25%;
+    background-color: var(--primaryRed);
+    color: var(--offWhite);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    letter-spacing: .25em;
+    cursor: pointer;
+    transition: background-color .5s;
+}
+
+.redButton:hover {
+    background-color: hsl(5, 85%, 50%);
+}
+
+#bottomBox {
+    width: 80vw;
+    margin: 5vmax auto;
+    justify-content: space-between;
+}
+
+#bottomBox img {
+    width: 30%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bottomItem {
+    width: 32%;
+    height: 16vh;
+    justify-content: space-between;
+}
+
+.bottomText {
+    margin-left: 10%;
+}
+
+.bottomText *{
+    margin: 4% 0;
+    transition: color .5s;
+}
+
+.bottomText h2 {
+    font-size: 1.25em;
+    font-weight: 900;
+    font-family: customExtraBold;
+}
+
+
+
+@media only screen and (max-width: 500px) {
+
+    #grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr .5fr .5fr 1fr .5fr;
+        grid-template-areas:
+            'a'
+            'c'
+            'd'
+            'b'
+            'b';
+        height: 150vh;
+    }
+
+    .picture {
+        height: 40vh;
+    }
+
+    #bottomBox {
+        flex-direction: column;
+    }
+
+    .bottomItem {
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    #W {
+        visibility: hidden;
+    }
+
+    .spacer {
+        visibility: hidden;
+    }
+}
